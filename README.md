@@ -1,6 +1,6 @@
 # PlexMediaPlayer
 
-This is a **Control Only** profile for the new Plex Media Player.
+This is a **Control Only** profile for the new Plex Media Player for Savant Home Automation systems.
 
 I am currently looking into methods of getting feedback from the new player. However I feel like the player is not quite adhearing to the API specifications set by Plex yet. For a full brief on the Plex API pelase see the [Plex API Documentation](https://github.com/plexinc/plex-media-player/wiki/Remote-control-API)
 
