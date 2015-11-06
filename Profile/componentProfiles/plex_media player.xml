@@ -2,15 +2,17 @@
 <component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="racepoint_component_profile.xsd" manufacturer="Plex"
 	model="Media Player" device_class="Media_server" minimum_component_engine_version="0"
-	rpm_xml_version="2.0" alias="Plex Media Player">
+	rpm_xml_version="2.1" alias="Plex Media Player">
 	<notes>
         
         ====================== Change Log ==================
+        Version: 2.1 Feedback:  - Starting to get some feedback sorted!
         Version: 2.0 First:  - Initial Release
 </notes>
 	<control_interfaces preferred="ip">
-		<ip port="32433" response_time_length_ms="5000" name_on_component="ETHERNET" protocol="http"
-		/>
+		<ip port="32433" response_time_length_ms="5000" name_on_component="ETHERNET" protocol="http">
+			<!--<receive_end_condition test_condition="data" type="hex">0a</receive_end_condition>-->
+		</ip>
 	</control_interfaces>
 	<media_interfaces>
 		<output name_on_component="HDMI">
@@ -52,10 +54,124 @@
 			<output name_on_component="Coaxial Out"/>
 		</implementation>
 		<status_messages>
-			<status_message name="CatchAll">
-				<data type="character" terminator_type="end_of_data">
-					<update state="CatchAll" type="string"/>
-				</data>
+			<status_message name="Video Polling">
+				<root_object name="MediaContainer" matches_required="none" format="xml">
+					<values path="//Timeline[@type='video']/@seekRange" matches_required="none">
+						<update state="videoSeekRange" type="string"></update>
+					</values>
+					<values path="//Timeline[@type='video']/@state" matches_required="none">
+						<update state="videoState" type="string"></update>
+					</values>
+					<values path="//Timeline[@type='video']/@duration" matches_required="none">
+						<update state="videoDuration" type="string"></update>
+					</values>
+					<values path="//Timeline[@type='video']/@time" matches_required="none">
+						<update state="videoTime" type="string"></update>
+					</values>
+					<values path="//Timeline[@type='video']/@subtitleStreamID" matches_required="none">
+						<update state="videoSubtitleStreamID" type="string"></update>
+					</values>
+					<values path="//Timeline[@type='video']/@containerKey" matches_required="none">
+						<update state="videoContainerKey" type="string"></update>
+					</values>
+					<values path="//Timeline[@type='video']/@guid" matches_required="none">
+						<update state="videoGUID" type="string"></update>
+					</values>
+					<values path="//Timeline[@type='video']/@key" matches_required="none">
+						<update state="videoKey" type="string"></update>
+					</values>
+					<values path="//Timeline[@type='video']/@controllable" matches_required="none">
+						<update state="videoControlMethods" type="string"></update>
+					</values>
+					<values path="//Timeline[@type='video']/@ratingKey" matches_required="none">
+						<update state="videoRatingKey" type="string"></update>
+					</values>
+					<values path="//Timeline[@type='video']/@location" matches_required="none">
+						<update state="videoLocation" type="string"></update>
+					</values>
+					<values path="//Timeline[@type='video']/@mute" matches_required="none">
+						<update state="videoMute" type="string"></update>
+					</values>
+					<values path="//Timeline[@type='video']/@playQueueVersion" matches_required="none">
+						<update state="videoPlayQueueVersion" type="string"></update>
+					</values>
+					<values path="//Timeline[@type='video']/@token" matches_required="none">
+						<update state="videoToken" type="string"></update>
+					</values>
+					<values path="//Timeline[@type='video']/@machineIdentifier" matches_required="none">
+						<update state="videoMachineIdentifier" type="string"></update>
+					</values>
+					<values path="//Timeline[@type='video']/@address" matches_required="none">
+						<update state="videoAddress" type="string"></update>
+					</values>
+					<values path="//Timeline[@type='video']/@repeat" matches_required="none">
+						<update state="videoRepeat" type="string"></update>
+					</values>
+					<values path="//Timeline[@type='video']/@audioStreamID" matches_required="none">
+						<update state="videoAudioStreamID" type="string"></update>
+					</values>
+					<values path="//Timeline[@type='video']/@port" matches_required="none">
+						<update state="videoPort" type="string"></update>
+					</values>
+					<values path="//Timeline[@type='video']/@volume" matches_required="none">
+						<update state="videoVolume" type="string"></update>
+					</values>
+					<values path="//Timeline[@type='video']/@protocol" matches_required="none">
+						<update state="videoProtocol" type="string"></update>
+					</values>
+					<values path="//Timeline[@type='video']/@playQueueItemID" matches_required="none">
+						<update state="videoPlayQueueItemID" type="string"></update>
+					</values>
+					<values path="//Timeline[@type='video']/@shuffle" matches_required="none">
+						<update state="videoShuffle" type="string"></update>
+					</values>
+					<values path="//Timeline[@type='video']/@playQueueID" matches_required="none">
+						<update state="videoPlayQueueID" type="string"></update>
+					</values>
+					
+					<values path="//@commandID" matches_required="none">
+						<update state="CommandID" type="integer"></update>
+					</values>
+				</root_object>
+			</status_message>
+			
+			<status_message name="GetPlayerResources">
+				<root_object name="MediaContainer" matches_required="at_least_one" format="xml">
+					<values path="/MediaContainer/Player/@deviceClass" matches_required="at_least_one">
+						<update state="deviceClass" type="string"></update>
+					</values>
+					<values path="/MediaContainer/Player/@machineIdentifier" matches_required="at_least_one">
+						<update state="machineIdentifier" type="string"></update>
+					</values>
+					<values path="/MediaContainer/Player/@platform" matches_required="at_least_one">
+						<update state="platform" type="string"></update>
+					</values>
+					<values path="/MediaContainer/Player/@platformVersion" matches_required="at_least_one">
+						<update state="platformVersion" type="string"></update>
+					</values>
+					<values path="/MediaContainer/Player/@products" matches_required="at_least_one">
+						<update state="product" type="string"></update>
+					</values>
+					<values path="/MediaContainer/Player/@protocolCapabilities" matches_required="at_least_one">
+						<update state="protocolCapabilities" type="string"></update>
+					</values>
+					<values path="/MediaContainer/Player/@protocolVersion" matches_required="at_least_one">
+						<update state="protocolVersion" type="string"></update>
+					</values>
+					<values path="/MediaContainer/Player/@title" matches_required="at_least_one">
+						<update state="title" type="string"></update>
+					</values>
+					<values path="/MediaContainer/Player/@version" matches_required="at_least_one">
+						<update state="version" type="string"></update>
+					</values>
+				</root_object>
+				<run_elements>
+					<actions>
+						<action name="updatetoSeconds">
+							
+						</action>
+					</actions>
+				</run_elements>
 			</status_message>
 		</status_messages>
 		<universal_component_actions>
@@ -361,23 +477,9 @@
 				<update_state_variable name="commID" update_type="increment" update_source="constant">1</update_state_variable>
 				<command_interface interface="ip">
 					<command response_required="no">
-						<http_header name="X-Plex-Client-Identifier">A1FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
-						<http_header name="X-Plex-Device-Name">SavantPlexControl</http_header>
-						<command_string type="character" http_request_type="POST">player/timeline/poll?wait=1&amp;commandID=</command_string>
-						<parameter_list>
-							<parameter parameter_data_type="character" state_variable="commID"/>
-						</parameter_list>
-						<delay ms_delay="50"/>
-					</command>
-				</command_interface>
-			</action>
-			<action name="Subscribe">
-				<update_state_variable name="commID" update_type="increment" update_source="constant">1</update_state_variable>
-				<command_interface interface="ip">
-					<command response_required="no">
-						<http_header name="X-Plex-Client-Identifier">A1FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
-						<http_header name="X-Plex-Device-Name">SavantPlexControl</http_header>
-						<command_string type="character" http_request_type="POST">player/timeline/subscribe?port=32433&amp;protocol=http%20HTTP%2F1.1&amp;commandID=</command_string>
+						<http_header name="X-Plex-Client-Identifier">C4FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
+						<http_header name="X-Plex-Device-Name">Savant-Plex</http_header>
+						<command_string type="character" http_request_type="GET">player/timeline/poll?wait=0&amp;commandID=</command_string>
 						<parameter_list>
 							<parameter parameter_data_type="character" state_variable="commID"/>
 						</parameter_list>
@@ -385,7 +487,28 @@
 					</command>
 				</command_interface>
 				<execute_on_schedule period_ms="0"/>
-				<execute_on_schedule period_ms="60000"/>
+				<execute_on_schedule period_ms="30000"/>
+			</action>
+			<action name="GetVideoInfo">
+				<command_interface interface="ip">
+					<command response_required="no">
+						<http_header name="X-Plex-Client-Identifier">C4FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
+						<http_header name="X-Plex-Device-Name">Savant-Plex</http_header>
+						<command_string type="character" http_request_type="GET"></command_string>
+						<parameter_list>
+							<parameter parameter_data_type="character" state_variable="videoKey"/>
+						</parameter_list>
+						<delay ms_delay="50"/>
+					</command>
+				</command_interface>
+			</action>
+			<action name="GetResources">
+				<command_interface interface="ip">
+					<command>
+						<command_string type="character" http_request_type="GET">resources</command_string>
+						<delay ms_delay="100"/>
+					</command>
+				</command_interface>
 			</action>
 		</custom_component_actions>
 	</logical_component>
