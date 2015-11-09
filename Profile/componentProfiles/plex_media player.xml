@@ -2,7 +2,7 @@
 <component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="racepoint_component_profile.xsd" manufacturer="Plex"
 	model="Media Player" device_class="Media_server" minimum_component_engine_version="0"
-	rpm_xml_version="2.1" alias="Plex Media Player">
+	rpm_xml_version="2.2" alias="Plex Media Player">
 	<notes>
         
         ====================== Change Log ==================
@@ -195,8 +195,8 @@
 				<update_state_variable name="commID" update_type="increment" update_source="constant">1</update_state_variable>
 				<command_interface interface="ip">
 					<command response_required="no">
-						<http_header name="X-Plex-Client-Identifier">A1FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
-						<http_header name="X-Plex-Device-Name">SavantPlexControl</http_header>
+						<http_header name="X-Plex-Client-Identifier">C4FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
+						<http_header name="X-Plex-Device-Name">Savant-Plex</http_header>
 						<command_string type="character" http_request_type="POST">/player/navigation/select?commandID=</command_string>
 						<parameter_list>
 							<parameter parameter_data_type="character" state_variable="commID"/>
@@ -209,8 +209,8 @@
 				<update_state_variable name="commID" update_type="increment" update_source="constant">1</update_state_variable>
 				<command_interface interface="ip">
 					<command response_required="no">
-						<http_header name="X-Plex-Client-Identifier">A1FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
-						<http_header name="X-Plex-Device-Name">SavantPlexControl</http_header>
+						<http_header name="X-Plex-Client-Identifier">C4FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
+						<http_header name="X-Plex-Device-Name">Savant-Plex</http_header>
 						<command_string type="character" http_request_type="POST">/player/navigation/moveUp?commandID=</command_string>
 						<parameter_list>
 							<parameter parameter_data_type="character" state_variable="commID"/>
@@ -223,8 +223,8 @@
 				<update_state_variable name="commID" update_type="increment" update_source="constant">1</update_state_variable>
 				<command_interface interface="ip">
 					<command response_required="no">
-						<http_header name="X-Plex-Client-Identifier">A1FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
-						<http_header name="X-Plex-Device-Name">SavantPlexControl</http_header>
+						<http_header name="X-Plex-Client-Identifier">C4FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
+						<http_header name="X-Plex-Device-Name">Savant-Plex</http_header>
 						<command_string type="character" http_request_type="POST">/player/navigation/moveDown?commandID=</command_string>
 						<parameter_list>
 							<parameter parameter_data_type="character" state_variable="commID"/>
@@ -237,8 +237,8 @@
 				<update_state_variable name="commID" update_type="increment" update_source="constant">1</update_state_variable>
 				<command_interface interface="ip">
 					<command response_required="no">
-						<http_header name="X-Plex-Client-Identifier">A1FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
-						<http_header name="X-Plex-Device-Name">SavantPlexControl</http_header>
+						<http_header name="X-Plex-Client-Identifier">C4FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
+						<http_header name="X-Plex-Device-Name">Savant-Plex</http_header>
 						<command_string type="character" http_request_type="POST">/player/navigation/moveLeft?commandID=</command_string>
 						<parameter_list>
 							<parameter parameter_data_type="character" state_variable="commID"/>
@@ -251,8 +251,8 @@
 				<update_state_variable name="commID" update_type="increment" update_source="constant">1</update_state_variable>
 				<command_interface interface="ip">
 					<command response_required="no">
-						<http_header name="X-Plex-Client-Identifier">A1FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
-						<http_header name="X-Plex-Device-Name">SavantPlexControl</http_header>
+						<http_header name="X-Plex-Client-Identifier">C4FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
+						<http_header name="X-Plex-Device-Name">Savant-Plex</http_header>
 						<command_string type="character" http_request_type="POST">/player/navigation/moveRight?commandID=</command_string>
 						<parameter_list>
 							<parameter parameter_data_type="character" state_variable="commID"/>
@@ -265,8 +265,8 @@
 				<update_state_variable name="commID" update_type="increment" update_source="constant">1</update_state_variable>
 				<command_interface interface="ip">
 					<command response_required="no">
-						<http_header name="X-Plex-Client-Identifier">A1FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
-						<http_header name="X-Plex-Device-Name">SavantPlexControl</http_header>
+						<http_header name="X-Plex-Client-Identifier">C4FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
+						<http_header name="X-Plex-Device-Name">Savant-Plex</http_header>
 						<command_string type="character" http_request_type="POST">/player/navigation/back?commandID=</command_string>
 						<parameter_list>
 							<parameter parameter_data_type="character" state_variable="commID"/>
@@ -279,8 +279,8 @@
 				<update_state_variable name="commID" update_type="increment" update_source="constant">1</update_state_variable>
 				<command_interface interface="ip">
 					<command response_required="no">
-						<http_header name="X-Plex-Client-Identifier">A1FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
-						<http_header name="X-Plex-Device-Name">SavantPlexControl</http_header>
+						<http_header name="X-Plex-Client-Identifier">C4FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
+						<http_header name="X-Plex-Device-Name">Savant-Plex</http_header>
 						<command_string type="character" http_request_type="POST">/player/playback/play?commandID=</command_string>
 						<parameter_list>
 							<parameter parameter_data_type="character" state_variable="commID"/>
@@ -293,8 +293,8 @@
 				<update_state_variable name="commID" update_type="increment" update_source="constant">1</update_state_variable>
 				<command_interface interface="ip">
 					<command response_required="no">
-						<http_header name="X-Plex-Client-Identifier">A1FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
-						<http_header name="X-Plex-Device-Name">SavantPlexControl</http_header>
+						<http_header name="X-Plex-Client-Identifier">C4FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
+						<http_header name="X-Plex-Device-Name">Savant-Plex</http_header>
 						<command_string type="character" http_request_type="POST">/player/playback/pause?commandID=</command_string>
 						<parameter_list>
 							<parameter parameter_data_type="character" state_variable="commID"/>
@@ -307,8 +307,8 @@
 				<update_state_variable name="commID" update_type="increment" update_source="constant">1</update_state_variable>
 				<command_interface interface="ip">
 					<command response_required="no">
-						<http_header name="X-Plex-Client-Identifier">A1FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
-						<http_header name="X-Plex-Device-Name">SavantPlexControl</http_header>
+						<http_header name="X-Plex-Client-Identifier">C4FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
+						<http_header name="X-Plex-Device-Name">Savant-Plex</http_header>
 						<command_string type="character" http_request_type="POST">/player/playback/stop?commandID=</command_string>
 						<parameter_list>
 							<parameter parameter_data_type="character" state_variable="commID"/>
@@ -321,8 +321,8 @@
 				<update_state_variable name="commID" update_type="increment" update_source="constant">1</update_state_variable>
 				<command_interface interface="ip">
 					<command response_required="no">
-						<http_header name="X-Plex-Client-Identifier">A1FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
-						<http_header name="X-Plex-Device-Name">SavantPlexControl</http_header>
+						<http_header name="X-Plex-Client-Identifier">C4FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
+						<http_header name="X-Plex-Device-Name">Savant-Plex</http_header>
 						<command_string type="character" http_request_type="POST">/player/playback/stepForward?commandID=</command_string>
 						<parameter_list>
 							<parameter parameter_data_type="character" state_variable="commID"/>
@@ -335,8 +335,8 @@
 				<update_state_variable name="commID" update_type="increment" update_source="constant">1</update_state_variable>
 				<command_interface interface="ip">
 					<command response_required="no">
-						<http_header name="X-Plex-Client-Identifier">A1FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
-						<http_header name="X-Plex-Device-Name">SavantPlexControl</http_header>
+						<http_header name="X-Plex-Client-Identifier">C4FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
+						<http_header name="X-Plex-Device-Name">Savant-Plex</http_header>
 						<command_string type="character" http_request_type="POST">/player/playback/stepBack?commandID=</command_string>
 						<parameter_list>
 							<parameter parameter_data_type="character" state_variable="commID"/>
@@ -349,8 +349,8 @@
 				<update_state_variable name="commID" update_type="increment" update_source="constant">1</update_state_variable>
 				<command_interface interface="ip">
 					<command response_required="no">
-						<http_header name="X-Plex-Client-Identifier">A1FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
-						<http_header name="X-Plex-Device-Name">SavantPlexControl</http_header>
+						<http_header name="X-Plex-Client-Identifier">C4FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
+						<http_header name="X-Plex-Device-Name">Savant-Plex</http_header>
 						<command_string type="character" http_request_type="POST">/player/playback/stepForward?commandID=</command_string>
 						<parameter_list>
 							<parameter parameter_data_type="character" state_variable="commID"/>
@@ -363,8 +363,8 @@
 				<update_state_variable name="commID" update_type="increment" update_source="constant">1</update_state_variable>
 				<command_interface interface="ip">
 					<command response_required="no">
-						<http_header name="X-Plex-Client-Identifier">A1FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
-						<http_header name="X-Plex-Device-Name">SavantPlexControl</http_header>
+						<http_header name="X-Plex-Client-Identifier">C4FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
+						<http_header name="X-Plex-Device-Name">Savant-Plex</http_header>
 						<command_string type="character" http_request_type="POST">/player/playback/stepBack?commandID=</command_string>
 						<parameter_list>
 							<parameter parameter_data_type="character" state_variable="commID"/>
@@ -377,8 +377,8 @@
 				<update_state_variable name="commID" update_type="increment" update_source="constant">1</update_state_variable>
 				<command_interface interface="ip">
 					<command response_required="no">
-						<http_header name="X-Plex-Client-Identifier">A1FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
-						<http_header name="X-Plex-Device-Name">SavantPlexControl</http_header>
+						<http_header name="X-Plex-Client-Identifier">C4FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
+						<http_header name="X-Plex-Device-Name">Savant-Plex</http_header>
 						<command_string type="character" http_request_type="POST">/player/playback/skipNext?commandID=</command_string>
 						<parameter_list>
 							<parameter parameter_data_type="character" state_variable="commID"/>
@@ -391,8 +391,8 @@
 				<update_state_variable name="commID" update_type="increment" update_source="constant">1</update_state_variable>
 				<command_interface interface="ip">
 					<command response_required="no">
-						<http_header name="X-Plex-Client-Identifier">A1FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
-						<http_header name="X-Plex-Device-Name">SavantPlexControl</http_header>
+						<http_header name="X-Plex-Client-Identifier">C4FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
+						<http_header name="X-Plex-Device-Name">Savant-Plex</http_header>
 						<command_string type="character" http_request_type="POST">/player/playback/skipPrevious?commandID=</command_string>
 						<parameter_list>
 							<parameter parameter_data_type="character" state_variable="commID"/>
@@ -405,8 +405,8 @@
 				<update_state_variable name="commID" update_type="increment" update_source="constant">1</update_state_variable>
 				<command_interface interface="ip">
 					<command response_required="no">
-						<http_header name="X-Plex-Client-Identifier">A1FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
-						<http_header name="X-Plex-Device-Name">SavantPlexControl</http_header>
+						<http_header name="X-Plex-Client-Identifier">C4FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
+						<http_header name="X-Plex-Device-Name">Savant-Plex</http_header>
 						<command_string type="character" http_request_type="POST">/player/navigation/toggleOSD?commandID=</command_string>
 						<parameter_list>
 							<parameter parameter_data_type="character" state_variable="commID"/>
@@ -419,8 +419,8 @@
 				<update_state_variable name="commID" update_type="increment" update_source="constant">1</update_state_variable>
 				<command_interface interface="ip">
 					<command response_required="no">
-						<http_header name="X-Plex-Client-Identifier">A1FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
-						<http_header name="X-Plex-Device-Name">SavantPlexControl</http_header>
+						<http_header name="X-Plex-Client-Identifier">C4FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
+						<http_header name="X-Plex-Device-Name">Savant-Plex</http_header>
 						<command_string type="character" http_request_type="POST">/player/navigation/toggleOSD?commandID=</command_string>
 						<parameter_list>
 							<parameter parameter_data_type="character" state_variable="commID"/>
@@ -433,9 +433,23 @@
 				<update_state_variable name="commID" update_type="increment" update_source="constant">1</update_state_variable>
 				<command_interface interface="ip">
 					<command response_required="no">
-						<http_header name="X-Plex-Client-Identifier">A1FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
-						<http_header name="X-Plex-Device-Name">SavantPlexControl</http_header>
+						<http_header name="X-Plex-Client-Identifier">C4FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
+						<http_header name="X-Plex-Device-Name">Savant-Plex</http_header>
 						<command_string type="character" http_request_type="POST">/player/navigation/home?commandID=</command_string>
+						<parameter_list>
+							<parameter parameter_data_type="character" state_variable="commID"/>
+						</parameter_list>
+						<delay ms_delay="50"/>
+					</command>
+				</command_interface>
+			</action>
+			<action name="Music">
+				<update_state_variable name="commID" update_type="increment" update_source="constant">1</update_state_variable>
+				<command_interface interface="ip">
+					<command response_required="no">
+						<http_header name="X-Plex-Client-Identifier">C4FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
+						<http_header name="X-Plex-Device-Name">Savant-Plex</http_header>
+						<command_string type="character" http_request_type="POST">/player/navigation/music?commandID=</command_string>
 						<parameter_list>
 							<parameter parameter_data_type="character" state_variable="commID"/>
 						</parameter_list>
@@ -447,8 +461,8 @@
 				<update_state_variable name="commID" update_type="increment" update_source="constant">1</update_state_variable>
 				<command_interface interface="ip">
 					<command response_required="no">
-						<http_header name="X-Plex-Client-Identifier">A1FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
-						<http_header name="X-Plex-Device-Name">SavantPlexControl</http_header>
+						<http_header name="X-Plex-Client-Identifier">C4FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
+						<http_header name="X-Plex-Device-Name">Savant-Plex</http_header>
 						<command_string type="character" http_request_type="POST">/player/playback/setParameters?repeat=1&amp;commandID=</command_string>
 						<parameter_list>
 							<parameter parameter_data_type="character" state_variable="commID"/>
@@ -461,8 +475,8 @@
 				<update_state_variable name="commID" update_type="increment" update_source="constant">1</update_state_variable>
 				<command_interface interface="ip">
 					<command response_required="no">
-						<http_header name="X-Plex-Client-Identifier">A1FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
-						<http_header name="X-Plex-Device-Name">SavantPlexControl</http_header>
+						<http_header name="X-Plex-Client-Identifier">C4FFA5A5-62E3-4B90-BC35-4BF8CED7DFEC</http_header>
+						<http_header name="X-Plex-Device-Name">Savant-Plex</http_header>
 						<command_string type="character" http_request_type="POST">/player/playback/setParameters?shuffle=1&amp;commandID=</command_string>
 						<parameter_list>
 							<parameter parameter_data_type="character" state_variable="commID"/>
