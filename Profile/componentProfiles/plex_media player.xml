@@ -6,6 +6,7 @@
 	<notes>
         
         ====================== Change Log ==================
+        Version: 2.2 Feedback:  - Only usuable feedback from this API is progress time though the video.
         Version: 2.1 Feedback:  - Starting to get some feedback sorted!
         Version: 2.0 First:  - Initial Release
 </notes>
@@ -44,7 +45,11 @@
 		</data>
 	</media_interfaces>
 	<state_variable_list>
-		<state_variable name="commID" owning_logical_component="Plex" state_center_type="integer" state_center_binding="CommandID">0</state_variable>
+		<state_variable name="commID" owning_logical_component="Plex" state_center_type="integer" state_center_binding="commID">0</state_variable>
+		<state_variable name="videoTime" owning_logical_component="Plex" state_center_type="integer" state_center_binding="videoTime">0</state_variable>
+		<state_variable name="videoSecond" owning_logical_component="Plex" state_center_type="integer" state_center_binding="videoSecond">0</state_variable>
+		<state_variable name="videoMinute" owning_logical_component="Plex" state_center_type="integer" state_center_binding="videoMinute">0</state_variable>
+		<state_variable name="videoHour" owning_logical_component="Plex" state_center_type="integer" state_center_binding="videoHour">0</state_variable>
 	</state_variable_list>
 	<logical_component logical_component_name="Plex">
 		<implementation>
@@ -66,7 +71,7 @@
 						<update state="videoDuration" type="string"></update>
 					</values>
 					<values path="//Timeline[@type='video']/@time" matches_required="none">
-						<update state="videoTime" type="string"></update>
+						<update state="videoTime" type="integer"></update>
 					</values>
 					<values path="//Timeline[@type='video']/@subtitleStreamID" matches_required="none">
 						<update state="videoSubtitleStreamID" type="string"></update>
@@ -90,7 +95,15 @@
 						<update state="videoLocation" type="string"></update>
 					</values>
 					<values path="//Timeline[@type='video']/@mute" matches_required="none">
-						<update state="videoMute" type="string"></update>
+						<!--<update state="videoMute" type="string"></update>-->
+						<value_map match_required="yes">
+							<map key="0">
+								<update state="videoMute" type="boolean">false</update>
+							</map>
+							<map key="1">
+								<update state="videoMute" type="boolean">true</update>
+							</map>
+						</value_map>
 					</values>
 					<values path="//Timeline[@type='video']/@playQueueVersion" matches_required="none">
 						<update state="videoPlayQueueVersion" type="string"></update>
@@ -105,7 +118,15 @@
 						<update state="videoAddress" type="string"></update>
 					</values>
 					<values path="//Timeline[@type='video']/@repeat" matches_required="none">
-						<update state="videoRepeat" type="string"></update>
+						<!--<update state="videoRepeat" type="string"></update>-->
+						<value_map match_required="yes">
+							<map key="0">
+								<update state="videoRepeat" type="boolean">false</update>
+							</map>
+							<map key="1">
+								<update state="videoRepeat" type="boolean">true</update>
+							</map>
+						</value_map>
 					</values>
 					<values path="//Timeline[@type='video']/@audioStreamID" matches_required="none">
 						<update state="videoAudioStreamID" type="string"></update>
@@ -114,7 +135,7 @@
 						<update state="videoPort" type="string"></update>
 					</values>
 					<values path="//Timeline[@type='video']/@volume" matches_required="none">
-						<update state="videoVolume" type="string"></update>
+						<update state="videoVolume" type="integer"></update>
 					</values>
 					<values path="//Timeline[@type='video']/@protocol" matches_required="none">
 						<update state="videoProtocol" type="string"></update>
@@ -123,16 +144,38 @@
 						<update state="videoPlayQueueItemID" type="string"></update>
 					</values>
 					<values path="//Timeline[@type='video']/@shuffle" matches_required="none">
-						<update state="videoShuffle" type="string"></update>
+						<!--<update state="videoShuffle" type="string"></update>-->
+						<value_map match_required="yes">
+							<map key="0">
+								<update state="videoShuffle" type="boolean">false</update>
+							</map>
+							<map key="1">
+								<update state="videoShuffle" type="boolean">true</update>
+							</map>
+						</value_map>
 					</values>
 					<values path="//Timeline[@type='video']/@playQueueID" matches_required="none">
 						<update state="videoPlayQueueID" type="string"></update>
 					</values>
-					
 					<values path="//@commandID" matches_required="none">
-						<update state="CommandID" type="integer"></update>
+						<update state="commID" type="integer"></update>
 					</values>
 				</root_object>
+				<run_elements>
+					<actions>
+						<action name="updatetoSeconds">
+							<update_state_variable name="videoTime" update_type="divide" update_source="constant">1000</update_state_variable>
+							<update_state_variable name="videoSecond" update_type="set" update_source="state_variable">videoTime</update_state_variable>
+							<update_state_variable name="videoSecond" update_type="modulus" update_source="constant">60</update_state_variable>
+							<update_state_variable name="videoMinute" update_type="set" update_source="state_variable">videoTime</update_state_variable>
+							<update_state_variable name="videoMinute" update_type="divide" update_source="constant">60</update_state_variable>
+							<update_state_variable name="videoHour" update_type="set" update_source="state_variable">videoMinute</update_state_variable>
+							<update_state_variable name="videoMinute" update_type="modulus" update_source="constant">60</update_state_variable>
+							<update_state_variable name="videoHour" update_type="divide" update_source="constant">60</update_state_variable>
+							<update_state_variable name="videoHour" update_type="modulus" update_source="constant">60</update_state_variable>
+						</action>
+					</actions>
+				</run_elements>
 			</status_message>
 			
 			<status_message name="GetPlayerResources">
@@ -165,13 +208,6 @@
 						<update state="version" type="string"></update>
 					</values>
 				</root_object>
-				<run_elements>
-					<actions>
-						<action name="updatetoSeconds">
-							
-						</action>
-					</actions>
-				</run_elements>
 			</status_message>
 		</status_messages>
 		<universal_component_actions>
